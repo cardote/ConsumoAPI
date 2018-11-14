@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ConsumoAPI</string>
+    <string name="botao_pesquisar">Search</string>
+    <string name="hint_search">Input number on this my bro</string>
+    <string name="button_search">Search</string>
+</resources>

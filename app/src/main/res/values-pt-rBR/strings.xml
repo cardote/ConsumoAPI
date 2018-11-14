@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConsumoAPI</string>
+    <string name="botao_pesquisar">Pesquisar</string>
+    <string name="hint_search">Coloca o numero ae meu chapa</string>
+    <string name="button_search">Pesquisar</string>
+</resources>
