@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import br.com.cardote.consumoapi.api.PokemonAPI
 import br.com.cardote.consumoapi.model.Pokemon
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_search.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,14 +49,17 @@ class SearchActivity : AppCompatActivity() {
                 if(response?.isSuccessful == true) {
                     val pokemon = response.body()
                     tvPokemon.text = pokemon?.name
-                    val imgUri = Uri.parse(pokemon?.sprites?.frontDefault)
-                    ivPokemon.setImageURI(imgUri)
+                    Picasso.get()
+                            .load(pokemon?.sprites?.frontDefault)
+                            .placeholder(R.drawable.pesquisando)
+                            .error(R.drawable.notfound)
+                            .into(ivPokemon);
                 } else {
-                    Toast.makeText(
-                            this@SearchActivity,
-                            "Deu ruim",
-                            Toast.LENGTH_LONG)
-                            .show()
+                    tvPokemon.text = "não encontrado"
+                    Picasso.get()
+                            .load(R.drawable.notfound)
+
+                            .into(ivPokemon);
                 }
             }
         })
